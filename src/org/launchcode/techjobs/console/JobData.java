@@ -84,27 +84,17 @@ public class JobData {
 
         return jobs;
     }
-    public static ArrayList<HashMap<String, String>> findByValue(String column, String value) {
+    public static ArrayList<HashMap<String, String>> findByValue(String value){
         loadData();
-
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        for (int i = 0 ; i < jobs.size(); i++){
-                   }
-            for (HashMap<String, String> row : allJobs) {
-
-                String aValue = row.get(column);
-
-                    if (aValue.contains(value)) {
-                        jobs.add(row);System.out.println("\n1*****\n");
-                        Map.Entry<String, String>jobs.get(i).entrySet();
-                        System.out.println(part.getKey() + ":  ".concat(part.getValue()));
-                        }
-                        System.out.println("\n*****");
+        for (HashMap<String, String> row : allJobs) {
+            if (String.valueOf(row).toUpperCase().contains(value)){
+                jobs.add(row);
             }
         }
-
-        return jobs;}
+        return jobs;
+    }
     /**
      * Read in data from a CSV file and store it in a list
      */

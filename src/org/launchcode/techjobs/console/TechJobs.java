@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map;
 
-import static org.launchcode.techjobs.console.JobData.findByValue;
-
 /**
  * Created by LaunchCode
  */
@@ -62,9 +60,10 @@ public class TechJobs {
                 // What is their search term?
                 System.out.println("\nSearch term: ");
                 String searchTerm = in.nextLine();
+                searchTerm = searchTerm.toUpperCase();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchField, searchTerm));
+                    printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -118,12 +117,12 @@ public class TechJobs {
         }
         else{
             for (int i = 0 ; i < someJobs.size(); i++){
-                System.out.println("\n1*****\n");
+                System.out.println("\n~~~~~~\n");
                 for (Map.Entry<String, String> part : someJobs.get(i).entrySet()){
                     System.out.println(part.getKey() + ":  ".concat(part.getValue()));
                 }
             }
-            System.out.println("\n*****");
+            System.out.println("\n~~~~~~");
         }
     }
     }
